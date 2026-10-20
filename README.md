@@ -277,19 +277,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 ---
 
-# 🟩 GitHub Contributions Calendar
-
-<div align="center">
-
-<img src="https://ghchart.rshah.org/40c463/Tanishak1" alt="Tanishak Tyagi's real GitHub contribution calendar" width="100%"/>
-
-<sub>Live contribution activity from my GitHub profile · Updated automatically</sub>
-
-</div>
-
----
-
-# 📈 Contribution Activity Graph
+# 📈 Contribution Graph
 
 <div align="center">
 
