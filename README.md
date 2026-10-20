@@ -277,11 +277,23 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 ---
 
-# 📈 Contribution Graph
+# 🟩 GitHub Contributions Calendar
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Tanishak1&theme=tokyo-night&hide_border=true"/>
+<img src="https://ghchart.rshah.org/40c463/Tanishak1" alt="Tanishak Tyagi's real GitHub contribution calendar" width="100%"/>
+
+<sub>Live contribution activity from my GitHub profile · Updated automatically</sub>
+
+</div>
+
+---
+
+# 📈 Contribution Activity Graph
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Tanishak1&theme=tokyo-night&hide_border=true" alt="Tanishak's GitHub activity graph"/>
 
 </div>
 
