@@ -71,7 +71,7 @@ if user["repositories"]["pageInfo"]["hasNextPage"]:
 
 values = [
     ("CONTRIBUTIONS", calendar["totalContributions"], "last 365 days"),
-    ("COMMITS", collection["totalCommitContributions"], f"{year} year to date"),
+    ("COMMITS", collection["totalCommitContributions"], "last 365 days"),
     ("PULL REQUESTS", user["pullRequests"]["totalCount"], "all time"),
     ("ISSUES", user["issues"]["totalCount"], "all time"),
     ("STARS", stars, "public owned repos"),
