@@ -38,7 +38,7 @@ def request(query, variables):
 
 now = dt.datetime.now(dt.timezone.utc)
 year = now.year
-year_start = dt.datetime(year, 1, 1, tzinfo=dt.timezone.utc)
+year_start = now - dt.timedelta(days=365)
 user = request(QUERY, {"login": USER, "from": year_start.isoformat(), "to": now.isoformat()})["user"]
 if not user:
     raise RuntimeError("GitHub user not found")
@@ -70,7 +70,7 @@ if user["repositories"]["pageInfo"]["hasNextPage"]:
         cursor = page["pageInfo"]["endCursor"]
 
 values = [
-    ("CONTRIBUTIONS", calendar["totalContributions"], f"{year} year to date"),
+    ("CONTRIBUTIONS", calendar["totalContributions"], "last 365 days"),
     ("COMMITS", collection["totalCommitContributions"], f"{year} year to date"),
     ("PULL REQUESTS", user["pullRequests"]["totalCount"], "all time"),
     ("ISSUES", user["issues"]["totalCount"], "all time"),
@@ -108,7 +108,7 @@ for i, (label, value, note) in enumerate(values):
                  f'<text x="{x+18}" y="{y+27}" class="label">{html.escape(label)}</text>'
                  f'<text x="{x+18}" y="{y+74}" class="num">{value:,}</text>'
                  f'<text x="{x+251}" y="{y+89}" class="note" text-anchor="end">{html.escape(note)}</text></g>')
-parts.append(f'<text x="450" y="344" class="note" text-anchor="middle">Source: GitHub API  •  Year-to-date metrics may exclude private activity  •  Updated {html.escape(stamp)}  •  Scheduled refresh every 6 hours</text></svg>')
+parts.append(f'<text x="450" y="344" class="note" text-anchor="middle">Source: GitHub API  •  Metrics may exclude private activity  •  Updated {html.escape(stamp)}  •  Scheduled refresh every 6 hours</text></svg>')
 Path("assets").mkdir(exist_ok=True)
 Path("assets/github-analytics.svg").write_text("".join(parts), encoding="utf-8")
 print("Generated assets/github-analytics.svg", values)
