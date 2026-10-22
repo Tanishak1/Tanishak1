@@ -10,9 +10,9 @@ from pathlib import Path
 USER = "Tanishak1"
 TOKEN = os.environ["GITHUB_TOKEN"]
 QUERY = """
-query($login: String!) {
+query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
-    contributionsCollection {
+    contributionsCollection(from: $from, to: $to) {
       contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
       totalCommitContributions
     }
@@ -36,7 +36,10 @@ def request(query, variables):
         raise RuntimeError(str(result["errors"]))
     return result["data"]
 
-user = request(QUERY, {"login": USER})["user"]
+now = dt.datetime.now(dt.timezone.utc)
+year = now.year
+year_start = dt.datetime(year, 1, 1, tzinfo=dt.timezone.utc)
+user = request(QUERY, {"login": USER, "from": year_start.isoformat(), "to": now.isoformat()})["user"]
 if not user:
     raise RuntimeError("GitHub user not found")
 collection = user["contributionsCollection"]
@@ -67,8 +70,8 @@ if user["repositories"]["pageInfo"]["hasNextPage"]:
         cursor = page["pageInfo"]["endCursor"]
 
 values = [
-    ("CONTRIBUTIONS", calendar["totalContributions"], "last 12 months"),
-    ("COMMITS", collection["totalCommitContributions"], "last 12 months"),
+    ("CONTRIBUTIONS", calendar["totalContributions"], f"{year} year to date"),
+    ("COMMITS", collection["totalCommitContributions"], f"{year} year to date"),
     ("PULL REQUESTS", user["pullRequests"]["totalCount"], "all time"),
     ("ISSUES", user["issues"]["totalCount"], "all time"),
     ("STARS", stars, "public owned repos"),
@@ -105,7 +108,7 @@ for i, (label, value, note) in enumerate(values):
                  f'<text x="{x+18}" y="{y+27}" class="label">{html.escape(label)}</text>'
                  f'<text x="{x+18}" y="{y+74}" class="num">{value:,}</text>'
                  f'<text x="{x+251}" y="{y+89}" class="note" text-anchor="end">{html.escape(note)}</text></g>')
-parts.append(f'<text x="450" y="344" class="note" text-anchor="middle">Source: GitHub API  •  Updated {html.escape(stamp)}  •  Scheduled refresh every 6 hours</text></svg>')
+parts.append(f'<text x="450" y="344" class="note" text-anchor="middle">Source: GitHub API  •  Year-to-date metrics may exclude private activity  •  Updated {html.escape(stamp)}  •  Scheduled refresh every 6 hours</text></svg>')
 Path("assets").mkdir(exist_ok=True)
 Path("assets/github-analytics.svg").write_text("".join(parts), encoding="utf-8")
 print("Generated assets/github-analytics.svg", values)
