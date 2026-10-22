@@ -273,7 +273,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=Tanishak1&theme=algolia&no-frame=true&row=2&column=4"/>
+<img src="assets/github-trophies.svg"/>
 
 </div>
 
@@ -283,7 +283,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Tanishak1&theme=tokyo-night&hide_border=true" alt="Tanishak's GitHub activity graph"/>
+<img src="assets/contribution-graph.svg" alt="Tanishak's GitHub activity graph"/>
 
 </div>
 
