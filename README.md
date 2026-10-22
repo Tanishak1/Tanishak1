@@ -287,23 +287,11 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 ---
 
-# 🐍 Contribution Snake
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/Tanishak1/Tanishak1/output/github-contribution-grid-snake-dark.svg"/>
-
-</div>
-
-> **Note:** Snake animation works after setting up a GitHub Actions workflow in your profile repository.
-
----
-
 # 💻 Coding Profiles
 
 <div align="center">
 
-<a href="https://leetcode.com/">
+<a href="https://leetcode.com/u/Tanishak_tyagi1/">
 <img src="https://img.shields.io/badge/LeetCode-Problem%20Solver-orange?style=for-the-badge&logo=leetcode"/>
 </a>
 
