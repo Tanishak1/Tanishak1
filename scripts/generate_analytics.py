@@ -112,3 +112,52 @@ parts.append(f'<text x="450" y="344" class="note" text-anchor="middle">Source: G
 Path("assets").mkdir(exist_ok=True)
 Path("assets/github-analytics.svg").write_text("".join(parts), encoding="utf-8")
 print("Generated assets/github-analytics.svg", values)
+
+
+# Self-hosted contribution heatmap: generated from the same authenticated GitHub API.
+import calendar as monthcalendar
+from collections import defaultdict
+
+cell = 12
+gap = 3
+origin_x, origin_y = 55, 88
+weeks = calendar["weeks"]
+heat = ['<svg xmlns="http://www.w3.org/2000/svg" width="900" height="265" viewBox="0 0 900 265" role="img" aria-label="GitHub contribution heatmap for the last year">',
+'<rect width="900" height="265" rx="18" fill="#101a32"/>',
+'<text x="30" y="39" fill="#f2f6ff" font-family="Arial" font-weight="bold" font-size="23">Contribution Activity</text>',
+'<text x="870" y="38" fill="#9baed2" font-family="Arial" font-size="14" text-anchor="end">Last 365 days</text>']
+palette = ["#182943", "#145d54", "#1b9a74", "#36cb8d", "#70f5aa"]
+for wi, week in enumerate(weeks):
+    for day in week["contributionDays"]:
+        date = dt.date.fromisoformat(day["date"])
+        count = day["contributionCount"]
+        x = origin_x + wi * (cell + gap)
+        y = origin_y + date.weekday() * (cell + gap)
+        level = 0 if count == 0 else 1 if count < 3 else 2 if count < 6 else 3 if count < 10 else 4
+        heat.append(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{palette[level]}"><title>{date.isoformat()}: {count} contributions</title></rect>')
+for label, weekday in [("Mon",0),("Wed",2),("Fri",4)]:
+    heat.append(f'<text x="14" y="{origin_y + weekday*(cell+gap)+11}" font-family="Arial" font-size="11" fill="#9baed2">{label}</text>')
+heat.append(f'<text x="450" y="234" text-anchor="middle" font-family="Arial" font-size="13" fill="#9baed2">{calendar["totalContributions"]:,} contributions in the last 365 days  •  Updated {html.escape(stamp)}</text></svg>')
+Path("assets/contribution-graph.svg").write_text("".join(heat), encoding="utf-8")
+
+# Achievement-style tiles based on measured activity; not official GitHub trophies.
+awards = [
+    ("CONTRIBUTOR", f'{calendar["totalContributions"]:,}', "Contributions · 365 days"),
+    ("CODE AUTHOR", f'{collection["totalCommitContributions"]:,}', "Commits · 365 days"),
+    ("PULL REQUESTS", str(user["pullRequests"]["totalCount"]), "Opened · all time"),
+    ("REPOSITORY STARS", str(stars), "Received · public repos"),
+]
+trophy = ['<svg xmlns="http://www.w3.org/2000/svg" width="900" height="175" viewBox="0 0 900 175" role="img" aria-label="GitHub achievements from live statistics">',
+'<rect width="900" height="175" rx="18" fill="#101a32"/>']
+for i, (name, count, subtitle) in enumerate(awards):
+    x = 20 + i * 222
+    trophy.extend([
+        f'<rect x="{x}" y="20" width="210" height="132" rx="14" fill="#172541" stroke="#2c4267"/>',
+        f'<circle cx="{x+26}" cy="46" r="11" fill="#f0bd59"/>',
+        f'<text x="{x+46}" y="51" font-family="Arial" font-weight="bold" font-size="13" fill="#b5c9e7">{html.escape(name)}</text>',
+        f'<text x="{x+20}" y="103" font-family="Arial" font-weight="bold" font-size="37" fill="#f2f6ff">{html.escape(count)}</text>',
+        f'<text x="{x+20}" y="133" font-family="Arial" font-size="12" fill="#9baed2">{html.escape(subtitle)}</text>'
+    ])
+trophy.append('</svg>')
+Path("assets/github-trophies.svg").write_text("".join(trophy), encoding="utf-8")
+print("Generated self-hosted contribution graph and achievement tiles")
