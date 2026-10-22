@@ -29,7 +29,7 @@ jobs:
           key = hashlib.sha256(svg).hexdigest()[:12]
           readme = Path("README.md")
           content = readme.read_text(encoding="utf-8")
-          pattern = r'(https://raw\\.githubusercontent\\.com/Tanishak1/Tanishak1/main/assets/github-analytics\\.svg)(?:\\?v=[A-Za-z0-9_-]+)?'
+          pattern = r'(https://raw\.githubusercontent\.com/Tanishak1/Tanishak1/main/assets/github-analytics\.svg)(?:\?v=[A-Za-z0-9_-]+)?'
           updated, count = re.subn(pattern, lambda m: m.group(1) + '?v=' + key, content)
           if count != 1:
               raise RuntimeError(f"Expected one analytics image URL, found {count}")
