@@ -251,12 +251,9 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 [Live GitHub contributions](https://github.com/Tanishak1?tab=overview) · [Pull requests](https://github.com/pulls?q=is%3Apr+author%3ATanishak1) · [Issues](https://github.com/issues?q=is%3Aissue+author%3ATanishak1) · [Recent commits](https://github.com/Tanishak1/daily-leet-code/commits)
 
-<sub>Stats refresh automatically when their providers update. These cards can lag behind GitHub; use the links above for official contribution, PR and issue activity. Streak totals may differ from the yearly GitHub contribution count.</sub>
+![Automatically updated animated GitHub analytics](assets/github-analytics.svg)
 
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Tanishak1&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&cache_seconds=1800"/>
-
-<img height="170" src="https://streak-stats.demolab.com?user=Tanishak1&theme=tokyonight&hide_border=true"/>
+<sub>Animated SVG generated from the GitHub API every 6 hours. GitHub Actions must be enabled for automatic updates.</sub>
 
 </div>
 
