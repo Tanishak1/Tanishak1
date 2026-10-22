@@ -287,6 +287,17 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 ---
 
+
+# 🐍 Contribution Snake
+
+<div align="center">
+
+![GitHub contribution snake](https://raw.githubusercontent.com/Tanishak1/Tanishak1/output/github-contribution-grid-snake-dark.svg)
+
+</div>
+
+---
+
 # 💻 Coding Profiles
 
 <div align="center">
