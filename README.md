@@ -249,7 +249,12 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Tanishak1&show_icons=true&theme=tokyonight&hide_border=true"/>
+[Live GitHub contributions](https://github.com/Tanishak1?tab=overview) · [Pull requests](https://github.com/pulls?q=is%3Apr+author%3ATanishak1) · [Issues](https://github.com/issues?q=is%3Aissue+author%3ATanishak1) · [Recent commits](https://github.com/Tanishak1/daily-leet-code/commits)
+
+<sub>Cards use third-party APIs and may lag behind GitHub. Links above open GitHub's own activity records.</sub>
+
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=Tanishak1&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&cache_seconds=1800"/>
 
 <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=Tanishak1&theme=tokyonight&hide_border=true"/>
 
@@ -261,7 +266,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tanishak1&layout=compact&theme=tokyonight&hide_border=true"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tanishak1&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800"/>
 
 </div>
 
