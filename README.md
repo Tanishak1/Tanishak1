@@ -251,7 +251,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 [Live GitHub contributions](https://github.com/Tanishak1?tab=overview) · [Pull requests](https://github.com/pulls?q=is%3Apr+author%3ATanishak1) · [Issues](https://github.com/issues?q=is%3Aissue+author%3ATanishak1) · [Recent commits](https://github.com/Tanishak1/daily-leet-code/commits)
 
-![Automatically updated animated GitHub analytics](https://raw.githubusercontent.com/Tanishak1/Tanishak1/main/assets/github-analytics.svg?v=a7d6223e955e)
+![Automatically updated animated GitHub analytics](https://raw.githubusercontent.com/Tanishak1/Tanishak1/main/assets/github-analytics.svg?v=6509197a53e9)
 
 <sub>Animated SVG generated from the GitHub API every 6 hours. GitHub Actions must be enabled for automatic updates.</sub>
 
@@ -273,7 +273,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img src="assets/github-trophies.svg?v=a7d6223e955e"/>
+<img src="assets/github-trophies.svg?v=6509197a53e9"/>
 
 </div>
 
@@ -283,7 +283,7 @@ Professional developer portfolio showcasing projects, skills, certifications, an
 
 <div align="center">
 
-<img src="assets/contribution-graph.svg?v=a7d6223e955e" alt="Tanishak's GitHub activity graph"/>
+<img src="assets/contribution-graph.svg?v=6509197a53e9" alt="Tanishak's GitHub activity graph"/>
 
 </div>
 
